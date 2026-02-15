@@ -2,9 +2,13 @@ import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import api from "../api/axios";
 import { AuthContext } from "../Context/AuthContext";
+import { useNavigate } from "react-router-dom";
+
 import "../styles/EventsDetails.css";
 
 export default function EventDetails() {
+  const navigate = useNavigate();
+
   const { id } = useParams();
   const { token } = useContext(AuthContext);
 
@@ -35,7 +39,7 @@ export default function EventDetails() {
       return;
     }
     fetchEvent();
-  }, [id, token]);
+  }, [id, token, navigate]);
 
   const handleRegister = async () => {
     try {
