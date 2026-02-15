@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import api from "../api/axios";
 import { AuthContext } from "../Context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../styles/Login.css";
 
 export default function Login() {
@@ -36,6 +36,11 @@ export default function Login() {
         />
         <button type="submit">Login</button>
       </form>
+
+      {/* Register link */}
+      <p style={{ marginTop: 10 }}>
+        New here? <Link to="/register">Register</Link>
+      </p>
     </div>
   );
 }
