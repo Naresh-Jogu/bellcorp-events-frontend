@@ -5,7 +5,7 @@ import api from "../api/axios";
 import "../styles/Events.css";
 
 export default function Events() {
-  const { token } = useContext(AuthContext);
+  const { token, logout } = useContext(AuthContext);
   const navigate = useNavigate();
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -67,11 +67,16 @@ export default function Events() {
     fetchEvents();
   };
 
+  const handleLogout = () => {
+    logout();
+    navigate("/login", { replace: true });
+  };
+
   return (
     <>
       <div style={{ padding: 20 }} className="events-container">
         <h2>Events</h2>
-
+        {token && <button onClick={handleLogout}>Logout</button>}
         {/* Flters*/}
         <form
           onSubmit={handleFilter}
