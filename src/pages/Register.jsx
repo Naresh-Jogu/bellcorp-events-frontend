@@ -1,6 +1,6 @@
 import { useState } from "react";
 import api from "../api/axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../styles/Register.css";
 
 export default function Register() {
@@ -39,6 +39,10 @@ export default function Register() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Register</button>
+         {/* Register link */}
+        <p style={{ marginTop: 10 }}>
+          Already registered? <Link to="/login">Login</Link>
+        </p>
       </form>
     </div>
   );

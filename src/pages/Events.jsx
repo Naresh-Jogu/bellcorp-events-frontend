@@ -76,7 +76,13 @@ export default function Events() {
     <>
       <div style={{ padding: 20 }} className="events-container">
         <h2>Events</h2>
-        {token && <button onClick={handleLogout}>Logout</button>}
+        <div className="dashboard">
+          {token && <button onClick={handleLogout}>Logout</button>}
+          {/* Register link */}
+          <h3 style={{ marginTop: 10 }}>
+            <Link to="/dashboard">Dashboard</Link>
+          </h3>
+        </div>
         {/* Flters*/}
         <form
           onSubmit={handleFilter}

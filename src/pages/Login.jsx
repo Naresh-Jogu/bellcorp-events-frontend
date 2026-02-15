@@ -35,12 +35,11 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Login</button>
+        {/* Register link */}
+        <p style={{ marginTop: 10 }}>
+          New here? <Link to="/register">Register</Link>
+        </p>
       </form>
-
-      {/* Register link */}
-      <p style={{ marginTop: 10 }}>
-        New here? <Link to="/register">Register</Link>
-      </p>
     </div>
   );
 }
