@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/AuthContext";
 import api from "../api/axios";
 import "../styles/Events.css";
 
 export default function Events() {
+  const { token } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -51,8 +54,12 @@ export default function Events() {
   };
 
   useEffect(() => {
+    if (!token) {
+      navigate("/register", { replace: true });
+      return;
+    }
     fetchEvents();
-  }, [page]);
+  }, [page, token, navigate]);
 
   const handleFilter = (e) => {
     e.preventDefault();
