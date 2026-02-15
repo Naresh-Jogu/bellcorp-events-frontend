@@ -1,0 +1,105 @@
+/* Dashboard Container */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+.dashboard-container h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.dashboard-container h3 {
+  margin-top: 40px;
+  color: #555;
+  font-size: 1.4rem;
+}
+
+/* Responsive Grid for Event Cards */
+.event-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+/* Individual Event Card */
+.event-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.event-info b {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.event-date {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* Action Link/Button */
+.view-link {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #007bff;
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.view-link:hover {
+  background-color: #0056b3;
+}
+
+/* Empty State Styling */
+.empty-msg {
+  color: #888;
+  font-style: italic;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+/* Loading Spinner Placeholder */
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 50px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+  .event-list {
+    grid-template-columns: 1fr; /* Force single column on small phones */
+  }
+  
+  .dashboard-container h2 {
+    font-size: 1.6rem;
+  }
+}

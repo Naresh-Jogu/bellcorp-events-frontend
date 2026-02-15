@@ -1,0 +1,99 @@
+/* Container */
+.event-details-container {
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+ margin-top: 50px;
+ text-align: start;
+}
+
+/* Header */
+.event-details-container h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #1f2937;
+  text-align: start;
+}
+
+/* Event Info */
+.event-details-container p {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.event-details-container b {
+  color: #111827;
+}
+
+/* Buttons */
+.event-details-container button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.event-details-container button:hover {
+  background-color: #1d4ed8;
+}
+
+/* Cancel Button */
+.event-details-container button.cancel {
+  background-color: #ef4444;
+}
+
+.event-details-container button.cancel:hover {
+  background-color: #b91c1c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .event-details-container {
+    padding: 15px;
+  }
+
+  .event-details-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .event-details-container p {
+    font-size: 0.95rem;
+  }
+
+  .event-details-container button {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .event-details-container {
+    padding: 12px;
+  }
+
+  .event-details-container h2 {
+    font-size: 1.4rem;
+  }
+
+  .event-details-container p {
+    font-size: 0.9rem;
+  }
+
+  .event-details-container button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
