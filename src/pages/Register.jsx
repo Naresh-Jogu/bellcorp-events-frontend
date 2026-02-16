@@ -7,13 +7,23 @@ export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await api.post("/auth/register", { name, email, password });
-    alert("Registered successfully");
-    navigate("/login");
+
+    try {
+      setLoading(true);
+
+      await api.post("/auth/register", { name, email, password });
+
+      navigate("/login");
+    } catch (err) {
+      alert(err.response?.data?.message || "Registration Failed");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -23,23 +33,28 @@ export default function Register() {
         <input
           type="text"
           placeholder="Name"
+          disabled={isLoading}
           required
           onChange={(e) => setName(e.target.value)}
         />
         <input
           type="email"
           placeholder="Email"
+          disabled={isLoading}
           required
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
           placeholder="Password"
+          disabled={isLoading}
           required
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Register</button>
-         {/* Register link */}
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? "Registering..." : "Register"}
+        </button>
+        {/* Register link */}
         <p style={{ marginTop: 10 }}>
           Already registered? <Link to="/login">Login</Link>
         </p>
